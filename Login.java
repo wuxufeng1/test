@@ -1,4 +1,4 @@
-//Login.java
+Login.java
 //import PublicModule.DbOp;
 import java.awt.*;
 import java.awt.event.*;
@@ -10,7 +10,7 @@ public class Login extends Frame{
 	Image img=tool.getImage(url);
 		public void paint(Graphics g){
 		g.drawImage(img,0,0,this);
-	}
+	
 
 	TextField text_user,text_pass;
 	public Login(){
@@ -76,7 +76,8 @@ public class Login extends Frame{
 			ShowMain show=new ShowMain();
 			show.setRights(is_admin);
 			System.out.println("Successed");
-			dispose();
+	
+ERROR		dispose();
 		}catch(SQLException e){
 			JOptionPane.showMessageDialog(null,"the wrong from information");
 		}
