@@ -1,3 +1,4 @@
+// å£®å¸ˆå‚…æäº¤ä»£ç å¸…
 //BookAdd.java
 import java.awt.*;
 import java.awt.event.*;
@@ -24,31 +25,31 @@ public class BookAdd extends Frame implements ActionListener{
 
 	}
 
-	String[] lbname={"Í¼Êé±àºÅ","Í¼ÊéÃû³Æ","Í¼ÊéÒ³Êı","Í¼Êé×÷Õß","·­     Òë","³ö °æ Éç","³ö°æÊ±¼ä","¶¨¼Û","¿â´æÊıÁ¿","ËùÊôÀàĞÍ"};
+	String[] lbname={"å›¾ä¹¦ç¼–å·","å›¾ä¹¦åç§°","å›¾ä¹¦é¡µæ•°","å›¾ä¹¦ä½œè€…","ç¿»     è¯‘","å‡º ç‰ˆ ç¤¾","å‡ºç‰ˆæ—¶é—´","å®šä»·","åº“å­˜æ•°é‡","æ‰€å±ç±»å‹"};
 	Label[] booklb=new Label[10];
 	TextField[] booktxt=new TextField[10];
 	Button savebtn=new Button("Save");
 	Button closebtn=new Button("Close");
 	Choice booktype=new Choice();
 	public BookAdd(){
-		setTitle("Ìí¼ÓĞÂÊé");
+		setTitle("æ·»åŠ æ–°ä¹¦");
 		setLayout(null);
 		setSize(500,250);
 		setResizable(false);
 		//this.setOpaque(false);
 		this.setForeground(Color.BLACK);
 		int lx=50,ly=50;
-		booktype.add("³ÌĞòÉè¼Æ");
-		booktype.add("Í¼ĞÎÉè¼Æ");
-		booktype.add("ÆäËû");
-		booktype.add("¿Æ¼¼");
-		booktype.add("ÎÄÑ§");
-		booktype.add("ÀúÊ·");
-		booktype.add("°Ù¿Æ");
-		booktype.add("Ó¢Óï");
-		booktype.add("¼ÆËã»ú");
+		booktype.add("ç¨‹åºè®¾è®¡");
+		booktype.add("å›¾å½¢è®¾è®¡");
+		booktype.add("å…¶ä»–");
+		booktype.add("ç§‘æŠ€");
+		booktype.add("æ–‡å­¦");
+		booktype.add("å†å²");
+		booktype.add("ç™¾ç§‘");
+		booktype.add("è‹±è¯­");
+		booktype.add("è®¡ç®—æœº");
 		booktype.add("Internet");
-		booktype.add("ÊıÑ§");
+		booktype.add("æ•°å­¦");
 		String str=getInsertOrderedList();
 		for(int i=0;i<booklb.length;i++){
 			if(lx>240){
@@ -146,16 +147,16 @@ public class BookAdd extends Frame implements ActionListener{
 		for(int i=0;i<inputstring.length;i++){
 			inputstring[i]=booktxt[i].getText();
 			if(inputstring[i].equals("")){
-				JOptionPane.showMessageDialog(null,"ÇëÎñ±ØÌîĞ´ÍêÕû");
+				JOptionPane.showMessageDialog(null,"è¯·åŠ¡å¿…å¡«å†™å®Œæ•´");
 				return;
 			}
 		}
 		if(id.equals("")){
-			JOptionPane.showMessageDialog(null,"Í¼Êé±àºÅ²»ÄÜÎª¿Õ");
+			JOptionPane.showMessageDialog(null,"å›¾ä¹¦ç¼–å·ä¸èƒ½ä¸ºç©º");
 			return;
 		}
 		if(IfBookIdExit(id)){
-			JOptionPane.showMessageDialog(null,"Í¼Êé±àºÅÒÑ´æÔÚ");
+			JOptionPane.showMessageDialog(null,"å›¾ä¹¦ç¼–å·å·²å­˜åœ¨");
 			return;
 		}
 		try{
@@ -169,13 +170,13 @@ public class BookAdd extends Frame implements ActionListener{
 			sql=sql+inputstring[5]+"','"+inputstring[6]+"',"+price+","+stock+","+page+")";
 			int i=DbOp.executeUpdate(sql);
 			if(i==1){
-				JOptionPane.showMessageDialog(null,"Í¼ÊéÌí¼Ó³É¹¦£¡");
+				JOptionPane.showMessageDialog(null,"å›¾ä¹¦æ·»åŠ æˆåŠŸï¼");
 				clearAllText();
 			}
 		}catch(ParseException e2){
-			JOptionPane.showMessageDialog(null,"³ö°æÊ±¼ä¸ñÊ½´íÎó£¬ÕıÈ·Îª£¨Äê-ÔÂ£©");
+			JOptionPane.showMessageDialog(null,"å‡ºç‰ˆæ—¶é—´æ ¼å¼é”™è¯¯ï¼Œæ­£ç¡®ä¸ºï¼ˆå¹´-æœˆï¼‰");
 		}catch(NumberFormatException e1){
-			JOptionPane.showMessageDialog(null,"¿â´æÊıÁ¿£¬¼Û¸ñ£¬Ò³Êı´íÎó£¬Ó¦ÎªÊı×Ö");
+			JOptionPane.showMessageDialog(null,"åº“å­˜æ•°é‡ï¼Œä»·æ ¼ï¼Œé¡µæ•°é”™è¯¯ï¼Œåº”ä¸ºæ•°å­—");
 		}
 	}
 	public boolean IfBookIdExit(String id){
@@ -189,7 +190,7 @@ public class BookAdd extends Frame implements ActionListener{
 			}
 				//right = false;
 		}catch(SQLException e){
-			JOptionPane.showMessageDialog(null,"ÎŞ·¨Õı³£¶ÁÈ¡Êı¾İ");
+			JOptionPane.showMessageDialog(null,"æ— æ³•æ­£å¸¸è¯»å–æ•°æ®");
 		}
 		return right;
 	}
